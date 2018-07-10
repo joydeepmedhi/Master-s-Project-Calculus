@@ -1,0 +1,10 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {english}
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Introduction}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Definitions}{4}{0}{1}
+\beamer@sectionintoc {2}{Differentiation}{12}{0}{2}
+\beamer@subsectionintoc {2}{1}{Directional Derivatives}{12}{0}{2}
+\beamer@subsectionintoc {2}{2}{The Differential}{20}{0}{2}
+\beamer@subsectionintoc {2}{3}{Differentiation of Composition}{23}{0}{2}
+\beamer@subsectionintoc {2}{4}{Differentiability of the Norm}{25}{0}{2}

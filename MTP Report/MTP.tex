@@ -1,0 +1,652 @@
+\documentclass[11 pt]{article}
+\usepackage[all]{xy}
+%\documentclass[13pt]{article}
+\usepackage{amssymb}
+%\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{graphics,graphicx}
+\usepackage{pgf,color}
+\usepackage{epstopdf}
+\usepackage{epsfig,textpos,mathrsfs}
+\usepackage{amsthm}
+\newtheorem{definition}{Definition}[section]
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{layout}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength{\textwidth}{6.5in}
+\setlength{\textheight}{8.5in}
+\setlength{\oddsidemargin}{0pt}
+\setlength{\evensidemargin}{0pt}
+\setlength{\topmargin}{0pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheorem{remark}{Remark}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{example}{Example}[section]
+\theoremstyle{definition}
+\theoremstyle{remark}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\h}{\mathcal{H}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\Y}{\mathcal{Y}}
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+\linespread{1.1}
+
+\begin{document}
+
+\begin{center}
+\begin{LARGE}
+\textbf {Calculus On Normed Vector Spaces}
+\end{LARGE}
+\begin{center}
+\end{center}
+{\begin{Large}
+\textbf{MTP REPORT} \\
+\end{Large}}
+January 2018
+%(For enhancement of JRF to SRF)
+\end{center}
+
+\vspace{45mm}
+\begin{center}
+Submitted by
+
+
+\textbf{Joydeep Medhi}
+
+\bf Entry No. 2013MT60599
+\vspace{15mm}
+
+\textit{Supervisor}
+
+\textbf{Dr. Amit Priyadarshi}
+
+\end{center}
+\vspace{3cm}
+\begin{center}
+\includegraphics[height=3.5cm]{iitlogo.jpg}
+\end{center}
+\begin{center}
+\textbf{{Department of Mathematics\\
+Indian Institute of Technology Delhi,\\
+New Delhi, INDIA}}
+\end{center}
+\thispagestyle{empty}
+\newpage
+\thispagestyle{empty}
+
+
+\section{Introduction}
+The aim of the project is to study the notion of derivatives on general normed vector spaces and do Calculus on them. We will also look at some applications of these concepts.
+Till \textbf{section 3} was done for Mid-Term presentation and from \textbf{section 4 to section 7} was done after Mid-Term Presentation. The generalization of Differentiation, Mean Value Theorm, Higher Derivatives and Differentials, Taylor Formula & Extremum is covered here. 
+
+\section{Definitions}
+
+In this section, some basic definitions and elementary properties are discussed.\\
+
+\textbf{Norm}:
+We will suppose that all vector spaces are real. Let $E$ be a vector space. A mapping $ \norm{.}: E\rightarrow \mathbb{R} $, is said to be a \textit{norm} if, for all $\textit{x, y} \in E$ and $\lambda \in \mathbb{R}$ \\
+
+ $\norm{x}\geq 0$ ; $\norm{x} = 0 \Leftrightarrow x = 0;$ \\
+ $\norm{\lambda x} = |\lambda|\norm{x}$; $\norm{x + y} \leq \norm{x} + \norm{y}$
+ 
+The pair $(E, \norm{.})$ is called a \textit{normed vector space} and we say that $\norm{x}$ is the norm
+of $x$.\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{Continuity}: Suppose now that we have two normed vector spaces, $(E, \norm{.}_{E})$ and $(F, \norm{.}_{F})$. Let A be a subset of E, $ f $ a mapping of $A$ into $F$ and $a \in A$. We say that $f$ is \textit{continuous} at $a$ if the following condition is satisfied: \par
+for all $\epsilon > 0$, there exists $\delta > 0$ such that, if $x \in A$ and $\norm{x-a}_{E} < \delta$,
+then $\norm{f(x) - f(a)}_{F} < \epsilon$ \\
+If $f$ is \textit{continuous} at every point $a \in A$, then we say that $f$ is \textit{continuous} on $A$.\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\proposition{The norm on a normed vector space is a continuous function}.
+\proof We have 
+$\norm{x} = \norm{x-y+y} \leq \norm{x-y} + \norm{x} \Rightarrow \norm{x} - \norm{y} \leq \norm{x-y}$\\
+In the same way,  $\norm{y} - \norm{x} \leq \norm{y-x}.$ As $\norm{y-x} = \norm{x-y}$, We have
+\begin{center}
+$|\norm{x}-\norm{y}| \leq \norm{x-y}$
+\end{center} 
+And hence the contunity.\\
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\proposition {Let E and F be normed vector spaces, $A \subseteq E, a \in A$, f and g are mappings from E into F and $\lambda \in \mathbb{R}$ .
+
+\item[\hspace{1cm} $\bullet$]If $f$ and $g$ are continuous at a, then so is $f + g$.
+\item[\hspace{1cm} $\bullet$]If $f$ is continuous at a, then so is $\lambda f$.
+\item[\hspace{1cm}  $\bullet$]If $\alpha$ is a real-valued function defined on $E$ and both $f$ and $\alpha$ are continuous at a, then so is $\alpha f$.}\\
+\newpage
+%Proposition%%%%%%%%%%%%%%%%%%%%%%%%%%
+\proposition{Let $(E, \norm{.}_{E})$ be a normed vector space
+\item[\hspace{1cm} $\bullet$] The mapping $ f:E \times E \longrightarrow E , (x,y)\mapsto x + y $ is continuous.
+\item[\hspace{1cm} $\bullet$] The mapping $ f:\R \times E \longrightarrow E , (\lambda,x)\mapsto \lambda x $ is continuous.} \normalfont
+
+
+%%%%%%%%%%%NEW%%%%%%%%%%%%%%%
+\section{Differentiation}
+
+In this section we will be primarily concerned with extending the derivative defined
+for real-valued functions defined on an interval of $\R$. We will also consider minima
+and maxima of real-valued functions defined on a normed vector space.
+
+\subsection{Directional Derivatives}
+
+Let $O$ be an open subset of a normed vector space $E$, $f$ a real-valued function
+defined on $O$, $a \in O$ and u a nonzero element of $E$. The function $f_{u}:t\rightarrow f(a +tu)$ is defined on an open interval containing 0. If the derivative $\frac{df_{u}}{dt}(0)$ is defined, i.e., if the limit
+\begin{center}
+$\lim_{t\to 0} \dfrac{f(a+tu)-f(a)}{t}$
+\end{center}
+exists, then it is called the \textit{directional derivative} of $f$ at $a$ in the direction of $u$, i.e. $\partial_{u}f(a)$ . \\
+
+If $E = \R_{n}$ and $e_{i}$ is its standard basis, then the directional derivative $\paerial{e_{i}}f(a)$ is called the $i$ th partial derivative of $f$ at a, or the derivative of $f$ with respect to $x_{i}$ at $a$.
+
+\begin{center}
+$\dfrac{\partial f}{\partial{x_{i}}} = \lim_{t \to 0} \dfrac{f(a_{1},..,a_{i} + t,...,a_{n}) - f(a_{1},....,a_{n})}{t}$
+\end{center}
+
+If for every point $x \in O$, the partial derivative $\dfrac{\partial f}{\partial x_{i}} (x) $ is defined, then we obtain the function i th partial derivative defined on $O$. If these functions are defined and continuous for all i , then we say that the function $f$ is of class $ C^{1} $.
+
+\example If $f$ is the function defined on $\R^{2}$ by $ f(x,y) =xe^{xy} $, then the partial derivatives with respect to $x$ and $y$ are defined at all points $(x,y) \in \R^{2}$ and
+\begin{center}
+$\dfrac{\partial f}{\partial x}(x,y) = (1 + xy)e^{xy} $ and  
+ $\dfrac{\partial f}{\partial y}(x,y) = x^{2}e^{xy} $
+\end{center}
+As both are continuous, f is of class $C^{1}$.\\ \normalfont
+
+However, a function of two or more variables may have all its partial derivatives defined at a given point without being \textit{continuous} there. Here is an example. 
+
+\newpage
+
+\example Consider the function $f$ defined on $ \R_{2} $ by
+\begin{center}
+$ f(x, y) = $
+	\begin{cases}
+        $\dfrac{x^{6}}{ x^{8} + (y-x^{2})^{2} }$	& \text{if $ (x,y) \neq (0,0) $}\\
+		0	& \text{otherwise}
+	\end{cases}
+\end{center}
+
+We have (for $x$ and $y$)
+\begin{center}
+$\lim_{t \to 0}\dfrac{t^{6}}{t^8 + t^4}/t = 0$ ~~ and ~~ $\lim_{t \to 0}\dfrac{0}{t^2}/t = 0 $
+\end{center}
+
+and so,
+\begin{center}
+$ \dfrac{\partial f}{\partial x}(0,0) = \dfrac{\partial f}{\partial y}(0,0) = 0. $
+\end{center}
+
+However, $\lim_{t \to 0}f(x,x^2) = \infty $, which indicates $f$ is not continuous at 0. \\ \normalfont
+
+Suppose now that $O$ is an open subset of $\R^n$ and $f$ a mapping defined on $O$ with image in $\R^m$. $f$ has m coordinate mappings $f_1,...., f_m$. If $a \in O$ and the partial derivatives $\dfrac{\partial f_i}{\partial x_j} $ of $a$, for $1 \leq i \leq m$ and $1 \leq j \leq n$, are all defined, then the $m \times n $ matrix
+
+\begin{center}
+\[
+J_f (a)=
+  \begin{bmatrix}
+    \dfrac{\partial f_1}{\partial x_1} & . ~ . ~ . & \dfrac{\partial f_1}{\partial x_n}  \\
+    . & . & . \\
+    . & . & . \\
+    . & . & . \\
+    \dfrac{\partial f_m}{\partial x_1} & . ~ . ~ . & \dfrac{\partial f_m}{\partial x_n} 
+  \end{bmatrix}
+\]
+\end{center}
+
+is called the \textit{Jacobian Matrix} of $f$ at $a$.\\
+
+
+\subsection{The Differential}
+
+Let $E$ and $F$ be normed vector spaces, $O$ an open subset of $E$ containing 0, and $g$ a mapping from $O$ into $F$ such that $g(0) =  0$. If there exists a mapping \epsilon, defined on a neighbourhood of $0 \in E$ and with image in $F$ , such that $\lim_{h \to 0} \epsilon(h) = 0$ and \\~\\
+\hspace*{2cm} $g(h) = \norm{h}_E \epsilon(h)$,\\~\\
+then we write $g(h) = o(h)$ and say that $g$ is \textit{"small o of h"}. \\
+
+The condition $g(h) = o(h)$ is independent of the norms we choose for two spaces $E$ and $F$. \\
+\par 
+Let $O$ be an open subset of a normed vector space $E$ and $f$ a mapping from $O$
+into a normed vector space $F$ . If $a \in O$ and there is a continuous linear mapping $\phi : E \rightarrow F$ such that \\~\\
+\hspace*{1cm} $ f(a+h) = f(a) + \phi (h) + o(h) $ \\
+
+when $h$ is close to 0, then we say that $f$ is \textit{differentiable} at $a$.\\
+
+\proposition{If f is differentable at a, then\\
+(a) f is continuous at a;\\
+(b) $\phi$ is unique.}
+
+
+\remark{If E and F are normed vector spaces and $f:E \rightarrow F$ is constant,
+then $f'(a) $ is the zero mapping at any point $a \in E$. If $f:E \rightarrow F$ is linear and
+continuous, then $f'(a) = f$ at any point $a \in E$.}
+
+\proposition{Let f be a mapping defined on an open subset O of a normed
+vector space E with image in the cartesian product $F =F_1 \times . . . \times F_p$. Then $f$ is
+differentiable at $a \in O$ if and only if the coordinate mappings $f_i$ , for $i = 1,...,p $ ,
+are differentiable at a.\\
+\hspace*{3cm} $ f'(a) = (f_1 '(a),....., f_p '(a)) $}
+
+\normalfont \\~\\
+
+Suppose that dim $E$ = $n < \infty$ and that $e_i$ is a basis of $E$. If $ x = \sum_{i=1}^{n} x_i e_i$, then\\
+\begin{center}
+$ f'(a)x = \sum_{i=1}^{n} x_i f'(a) e_i = \sum_{i=1}^{n} \partial_{e_i} f(a) e_i^*(x)$,
+\end{center}
+
+where $(e_i^*)$ is the dual basis of $(e_i)$. We thus obtain the expression. If $E = \R^n$ and $(e_i)$ is its standard basis, then we usually write $dx_i$ for $e_i^*$. This gives us the expression \\
+\begin{center}
+$ f'(a)x = \sum_{i=1}^{n} \dfrac{\partial f}{\partial x_i} (a) dx_i $.
+\end{center}
+
+\\
+\textbf{Differentiability at a given point}:
+If we wish to determine whether a real-valued function $f$ defined on an open subset of $\R^n$ is differentiable at a given point $a$, then first we determine whether all its partial derivatives at $a$
+exist. If this is not the case, then f is not differentiable at a.\\ 
+If all the partial derivatives exist, then we know that the only possibility for $f'(a)$ is the linear function $ \phi = \sum_{i=1}^{n} frac{\partial f}{\partial x_i} (a) dx_i $. We consider the expression,\\
+
+\begin{center}
+
+$ \dfrac{f(a+h) - f(a) - \phi (h)}{\norm{h}} = \epsilon (h)$
+\end{center}
+
+If $\lim_{h \to 0} \epsilon (h) =  0$, then $f$ is differentiable at a, otherwise it is not. \\
+
+%%%%%%%%%%
+\newpage
+%%%%%%%%%%
+
+\subsection{Differentials of Compositions}
+
+Let $E$, $F$ and $G$ be normed vector spaces, $O$ an open subset of $E$, $U$ an open subset of $F$ and $f : O \rightarrow F$ , $g : U \rightarrow G$ be such that $f(O) \subset U$ . Then the mapping $g \circ f$ is defined on $O$.
+
+\theorem{If f is differentiable at a and g is differentiable at f(a), then $g \circ f$ is differentiable at a and\\
+\hspace*{4cm} $  (g \circ f)' (a) = g'(f(a))\circ f'(a) $.\\
+This expression is referred to as Chain Rule.}
+\\
+
+\corollary{If in the above theorem the normed vector spaces are euclidean
+spaces, then \\
+\hspace*{4cm} $ J_{g \circ f} (a) = J_g (f(a)) \circ J_f (a)$. }
+\\
+
+\example Let $f: \R^3 \rightarrow \R^2$ and $ g : \R^2 \rightarrow \R$ be definrd by\\
+\hspace*{2cm} $ f(x,y,z) = (xy, e^xz)$ ~ ~ ~ ~ ~ ~ $ g(u,v) = u^2v$. Then,
+\begin{center}
+
+\[
+J_f (x,y,z)=
+  \begin{bmatrix}
+  	y & x & 0 \\
+    ze^{xz} & 0 & xe^{xz} \\
+  \end{bmatrix}
+\] and 
+\[
+J_g (u, v)=
+  \begin{bmatrix}
+  	2uv u^2
+  \end{bmatrix}
+\]
+
+\end{center}
+ 
+Multiplying the matrices $J_g(f (x,y,z))$ and $J_f(x,y,z)$, we obtain\\
+
+
+\hspace*{2cm} $J_{g \circ f} (x,y,z)= $ \( (2xy^2 + x^2 y^2 z)e^{xz} 2x^2 ye^{xz} x^3y^3 e^{xz}\) .
+
+\normalfont
+
+
+\subsection{Differentiability of the Norm}
+If $E$ is a normed vector space with norm $\norm{.}$, then $\norm{.}$ is itself a mapping from $E$ into $\R$ and we can study its \textit{differentiability}. We will write $Df(\norm{.}) (x)$ for differentiability of the norm at x (if exists).
+
+\newpage
+\proposition {Norm is not differentiable at the origin.}
+\proof Suppose $Df(\norm{.})$ exists. Then for small non-zero values of $h$, we have \\
+\begin{center}
+$ \norm{h} =  Df(\norm{.})(0)h + o(h) \Rightarrow \lim_{h \to 0} \left( 1 - Df(\norm{.}) \dfrac{h}{\norm{h}} \right) = 0 $
+\end{center} And
+\begin{center}
+$ \norm{h} = \norm{-h} =  -Df(\norm{.})(0)h + o(h) \Rightarrow \lim_{h \to 0} \left( 1 + Df(\norm{.}) \dfrac{h}{\norm{h}} \right) = 0$
+\end{center}
+
+Summing the two limits we obtain $2=0$, which is a contradiction. Hence $ Df(\norm{.})(0)$ does not exist.\\~\\
+At points where the differential exists, we have the following interesting result:
+
+\proposition{Let E be a normed vector space and $ \norm{.}$ its norm. If $\norm{.} $ is
+differentiable at $a \neq 0$ and $ \lambda > 0$ , then $ \norm{.} $ is differentiable at $\lambda a$ and $ Df(\norm{.})(\lambda a) = Df(\norm{.})(a)$. In addition, $ |Df(\norm{.})(a)|_{E^*} = 1$ }
+
+\proof \normalfont
+If $\norm{.} $ is differentiable at $a, \lambda > =$ and $h \in E \setminus \{0\}$ , then we have\\~\\
+
+\hspace*{5mm} $ \norm{\lambda a + h}$ & = $\lambda \norm{a + \frac{h}{\lambda}} $ = $ \lambda \left( \norm{a} + Df(\norm{.}) (\frac{h}{\lambda}) + o(\frac{h}{\lambda})\right)$ = $\norm{\lambda a} + Df(\norm{.})(a)h + o(h)$ \\
+
+It follows that $Df(\norm{.})(\lambda a)$ exists and $Df(\norm{.})(\lambda a) = Df(\norm{.})(a)$.\\
+
+For 2nd part, Consider the function, $ f: \R_+^* \rightarrow \R, \lambda \mapsto \norm{\lambda a}$\\
+
+For a given $\lambda \in \R_+^*$ and $h \in \R$ sufficiently small, we have\\
+\begin{center}
+$ \norm{(\lambda + h)a } = (\lambda + h)\norm{a} $
+\end{center}
+
+and so
+\begin{center}
+$ \lim_{h \to 0} \dfrac{\norm{(\lambda + h)a - \norm{\lambda a}}}{h} = \lim_{h \to 0} \dfrac{h \norm{a}}{h} = \norm{a} $
+\end{center}
+
+Therefore $ \dot{f}(\lambda) = \norm{a} $ for all values of $\lambda$. On the other hand, $f = \norm{.} \circ \phi$, where $ \phi(\lambda) = \lambda a$, and so \\
+\begin{center}
+$ (f'(\lambda))s = Df(\norm{.})(\lambda a) sa = a (Df(\norm{.})(a))a$
+\end{center}
+
+This implies, $ \dot{f}(\lambda) = Df(\norm{.})(a)a $ and hence $ Df(\norm{.})(a) a = \norm{a}$ . It follows that\\ $ |Df(\norm{.})(a)|_{E^*} = 1 $.\\~\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%Final Presentation%%%%%%%%%%%%%%%%%%
+
+\section{Mean Value Theorem}
+
+\theorem Let f be a real-valued function defined on a closed bounded interval $[a,b] \subset \R$. If f is continuous on $[a,b] $ and differentiable on $(a,b0 $ then there is a point $c \in (a,b)$ such that
+\begin{center}
+$ f(b) - f(a) = \dot{f}(c)(b-a)$
+\end{center}
+
+\subsection{Generalization of Mean Value Theorem}
+
+\theorem Let $O$ be a open subset of a normed vector space $E$ and $a,b \in E$ with $[a,b] \in O$. If $f:O \to \R$ is differentiable , then there is a element $c \in (a,b)$ such that 
+\begin{center}
+$ f(b) - f(a) = f'(c)(b-a)$
+\end{center}
+
+\remark{ If $E = \R^n$ then this result can be written as\\
+\hspace*{3cm}	$f(b) - f(a) = \sum_{i=1}^{n} \dfrac{\partial f}{\partial x_i}(c)(b_i - a_i)$}\\
+
+
+\normalfont
+Let us consider the result $f : \R \to \R^2$, $ t \mapsto (cos(2\pi t), sin(2\pi t)$ \\
+Here, $f(1)-f(0) = 0$. However, $f'(t) = (-2\pi sin(\pi t)dt , 2\pi cos(\pi t)dt)$, where $dt$ is the identity on $\R$. \\ So we cannot find $t_0 \in (0, 1)$ such that $f(1)-f(0) = f'(t_0)(1-0)$. Therefore we cannot generalize Theorem 4.2 to mappings whose image lies in a general normed vector space. However, a consequence of this theorem is :\\
+\hspace*{3cm} $ |f(b) - f(a)| \leq  sup_{z \in (a,b)} |f'(z)|_{E^*} (b-a)$.
+
+
+\theorem Let $[a,b]$ be an interval of $\R$, $F$ a normed vector space and $f:[a,b] \to F$ and $g: [a,b] \to \R$ both continuous and differentiable on $(a,b)$. If $\norm{\dot{f}(t)} \leq \dot{g}(t)$ for all $t \in (a,b)$, then \hspace*{3cm} $\norm{f(b) - f(a)}_F \leq g(b) - g(a)$.
+		
+
+\corollary Let $E$ and $F$ are normed vector spaces, $O$ an open subset of $E$ and $f:O \to F$ differentiable on $O$. If the segment $[a,b] \subset O$ ,then\\
+\hspace*{3cm}   $ \norm{f(b)-f(a)}_F  \leq sup_{x \in (a,b)} |f'(x)|_{L(E, F)} \norm{b-a}_E $
+
+
+\proof \normalfont
+case 1:\\
+If $sup_{x \in (a,b)}|f'(x)|_{L(E,F)} = \infty$, then it is true.\\
+case 2:\\
+Let $u:[0,1] \to E $ be defined by $u(t) = (1-t)a + tb$. If $g = f o u $, then $g$ is continuous on $[0,1]$ and differentiable on $(0,1)$, with\\
+\hspace*{3cm} $\dot{g}(t) = f'(u(t))_o u'(t) \textbf{1} = f'(u(t))(b-a)$.
+
+Therefore\\
+
+\hspace*{3cm} $\norm{\dot{g} (t)}_F = sup_{x \in (a,b)}|f'(x)|_{L(E,F)} \norm{b-a}_E$.
+\newpage
+\\ Form previous theorem, we have\\
+
+\hspace*{3cm} $\norm{g(1)- g(0)}_F = sup_{x \in (a,b)}|f'(x)|_{L(E,F)} \norm{b-a}_E (1-0)$,
+
+\\	i.e.,\\
+
+\hspace*{3cm} $\norm{f(b)- f(a)}_F = sup_{x \in (a,b)}|f'(x)|_{L(E,F)} \norm{b-a}_E$.\\
+
+Hence proved.\\
+
+\subsection{Partial Differentials}
+In this section we will generalize the notion of partial derivatives and its results.
+
+Let $E_1, E_2,....,E_n$ and $F$ be normed vector spaces. We set\\
+\hspace{3cm} $E = E_1 \times.......\times E_n$ and define a norm on $E$\\
+
+\hspace*{3cm} $ \norm{(x_1,...,x_n)}_E = $max_k $\norm{x_k}_{E_k}$.\\
+\\
+
+
+Now let $O$ be an open subset of $E$ and $f$ a mapping from $O$ into $F$ . If we take a
+point $a \in O$ and let the kth coordinate vary and fix the others, then we obtain a
+mapping $f_{a,k}$ from $E_k$ into $F$ , defined on an open subset of $E_k$ containing $a_k$.
+
+If $f_{a,k}$ is differentiable at $a_k$, then we call the differential $f'_{a,k}(a_k) \in L(E_k, F)$
+the \textit{kth partial differential of f at a} and write it as $\partial_k f(a)$ for $f'_{a,k}(a_k)$. 
+
+\proposition{If $f:O \to F$ is differentiable at $a \in O$, then all the partial differentials $\partial_k f(a)$ exists and \\
+\hspace*{4cm} $ f'(a)h = \sum_{i=1}^{n} \partial_k f(a)h_i$},\\
+
+\quad where $h = (h_1,......,h_n) \in E$.}
+
+\normalfont
+
+\theorem Let $E_1,E_2,...., E_n$ and $F$ be normed vector spaces, $O$ an open subset
+of $E = E_1 \times........\times E_n$ and $a \in O$. If $f$ is a mapping from  $O$ into $F$  having continuous partial differentials on a neighbourhood $V$ of $a$, then $f$ is continuously differentiable at $a$.
+
+\theorem Let $E_1,E_2,...., E_n$ and $F$ be normed vector spaces, $O$ an open subset
+of $E = E_1 \times........\times E_n$ and $f$ is a mapping from  $O$ into $F$, then $f$ is of class $C^1$ if and only if $f$ has a continuous partial differentials defined on $O$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\normalfont
+\section{Higher Derivatives and Differentials}
+
+Let $O \subset \R^n$ be open and $f$ a real valued function defined on $O$. If the function $\frac{\partial f}{\partial x_i}$ is defined on $O$, then we can consider the existance of its partial derivatives. If $ \frac{\partial}{\partial x_i}(\frac{\partial f}{\partial x_i})(a)$ exists, then we write for this derivative $\frac{\partial^2 x}{\partial x_j \partial x_i}(a)$ if $i \neq j$ and $\frac{\partial^2 x}{\partial^2 x_i}(a)$ if $i = j$.
+
+If these functions are defined and continuous for all pairs $(j,i)$, then we say that $f$ is of class $C^2$.
+
+We say that continuous functions are of class $C^0$ . If a function is of class $C^K$ for all
+$K \in \N$, then we say that $f$ is of class $C^{\infty}$ , or smooth.
+
+\subsection{Schwarz’s Theorem}
+\theorem Let $O \subset \R^2$ be open and $f: O \to \R$ be such that the second partial derivatives $\frac{\partial^2 f}{\partial x \partial y}$ and $\frac{\partial^2 f}{\partial y \partial x}$ are defined on $O$. If these functions are continuous at $(a,b) \in O$, then \\
+\hspace*{3cm} $\dfrac{\partial^2 f}{\partial x \partial y}(a,b)= \dfrac{\partial^2 f}{\partial y \partial x}(a,b)$.
+
+
+\corollary
+Let $O \subset \R^n$ be open and $f:O \to \R$ be such that the second partial derivatives $\frac{\partial^2 f}{\partial x_j \partial x_i}$ and $\frac{\partial^2 f}{\partial x_i \partial x_j}$ are defined on $O$. If these functions are continuous at $a \in O$, then\\
+
+\hspace*{3cm} $\dfrac{\partial^2 f}{\partial x_j \partial x_i}(a) = \dfrac{\partial^2 f}{\partial x_i \partial x_j}(a)$.\\
+
+\normalfont
+$S_k$ is the group of permutations of the set ${1,.....,k}$.
+
+\theorem Let $O \subset \R^n$ be open and $f:O \to \R$ of class $C^K$ and $(i_1,....,i_k) \in \N^K$ with $i_1 \leq .....\leq i_n$. If  $\sigma \in S_k$, then for $a \in O$ we have\\
+
+\hspace*{3cm} $\dfrac{\partial^k f}{\partial x_{i_1}..... \partial x_{i_k}} (a) = \dfrac{\partial^k f}{\partial x_{i_{\sigma(1)}}..... \partial x_{i_{\sigma(k)}}} (a)$
+
+
+
+\subsection{Multilinear Mapping}
+\normalfont
+Second and higher differentials are more difficult to define than second and higher
+derivatives. The natural way of defining a second differential would be to take the
+differential of the mapping $x \mapsto f'(x)$. Unfortunately, if $E$ and $F$ are normed
+vector spaces and $f$ a differentiable mapping from an open subset of $E$ into $F$ ,
+then the image of $f'$ lies not in $F$ but in $L(E,F)$. This means that the differential
+of $f'$ lies in $L(E,L(E,F))$.\\ ~ \\
+\quad We get around this problem by identifying differentials with multilinear mappings. In this section we will discuss differentials as multilinear mappings.
+
+\newpage
+
+Let $E_1,......,E_k$ and $F$ be vector spaces and $f$ a mapping from $E_1 \times .....\times E_k$ into $F$ . We may fix $k-1$ coordinates and so obtain a mapping from an $E_i \to F$ . If such
+a mapping is linear for each $E_i$ , then $f$ is said to be k-linear. \\ \quad A 1-linear mapping is
+just a linear mapping. We use the general term multilinear mapping for any k-linear
+mapping. In the case where $k = 2$, we say that $f$ is bilinear and, in the case where
+$k = 3$, trilinear. If $E = E_1 = ........... = E_k$ , then we speak of a k-linear mapping from
+$E$ into $F$ . If $F = R$, then we use the term multilinear form for multilinear mapping.\\
+
+Let us now suppose that the vector spaces $E_1,.........,E_k$ and $F$ are normed vector
+spaces. Setting $E =E_1 =.......= E_k$ , then as usual we define a norm on $E$ by\\
+\hspace*{3cm} $ \norm{(x_1,.......,x_k)}_E = max (\norm{x_1}_E ,................, \norm{x_k}_E)$
+
+
+
+\subsection{Higher Differentials}
+Let $E$ and $F$ be normed vector spaces and $O$ an open subset of $E$. If $f: O \to F$ is differentiable on an open neighbourhood $V$ of $a \in O$, then the mapping\\
+\hspace*{3cm} $f': V \mapsto L(E,F), x \mapsto f'(x)$ is defined.\\
+
+
+As we said in the previous section, if $f'$ is differentiable at $a$, then we would be tempted to define the second differential $f^{(2)}(a)$ of $f$ at $a$ as $f''(a) = (f')'(a)$. However, in this way $f^{(2)}(a) \in L_2(E,F)$ and it is difficult to work with these higher order spaces. Hence we proceed in a different way.\\
+
+We will define linear continuous mappings $\Phi_k$ from $L_k (E, F) \to L(E^k, F)$. \\
+
+we define k-differentiability and the kth differential $f^{(k)}(a)$ for higher values of k. We will sometimes write $f^{(1)}$ for $f'$. To distinguish the differential in $L_k(E; F)$  corresponding to $f^{(k)}(a)$, we will write $f^{[k]}$ for it, i.e., $\Phi_k (f^{[k]}(a)) = f^{(k)}(a)$.\\
+ 
+\proposition Let $E$ and $F$ be normed vector spaces, $O$ an open subset of $E$ and $f$ a mapping from $O$ into $F$ . Then $f$ is $k + 1$-differentiable at $a \in O$ if and only if $f^k$ is differentiable at $a$ and in this case\\
+\hspace*{3cm} $f^{(k)'}(a)h(h_1,....,h_k) = f^{(k+1)}(a)(h,h_1,.....,h_k)$\\
+
+for $h,h_1,.....,h_k \in E$.
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%% To be continued %%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Taylor Formulas}
+\normalfont
+Some useful notation
+
+1) Let $E$ and $F$ be normed vector spaces, $O$ an open subset of $E$ containing 0 and $g$
+a mapping from $O$ into $F$ such that $g(0) = 0$. If there exists a mapping $\epsilon$, defined
+on a neighbourhood of $0 \in E$ and with image in $F$, such that $lim_{h \to 0} \epsilon (h)$ and \\
+\hspace*{3cm}			$g(h) = \norm{h}_E^k \epsilon(h)$,\\
+
+then we will write $g(h) = o(\norm{h}_E^k)$ or $g(h) = o(\norm{h}^k)$ when the norm is understood. If k =1, then $o(\norm{h}) = o(h)$\\~\\
+
+2) If $E$ is a normed vector space and $h$ is a vector in $E$, then we will write $h^k$ for
+the vector $(h,.......,h) \in E^k$ .\\
+
+\lemma Let $E$ and $F$ be normed vector spaces, $\phi : E^k \to F$ continuous K-linear and symmetric and $\Phi : E \to F $ defined by $ \Phi (x) = \phi (x^k)$. Then $\Phi$ is differentiable and \\
+\hspace*{3cm} $\Phi '(x) = k \phi (x^{k-1} , h)$\\
+
+for $x,h \in E$
+
+\proof
+\normalfont We have\\
+
+\quad $\Phi(x + h) = \phi(x+h,......,x+h)$\\
+\hspace*{2cm}		$= \phi(x^k) + k\phi (x^{k-1}, h) +$ terms of the form $\phi (x^p, h^q)$\\
+
+where $p + q = k$ and $q \geq 2$. The mapping $h \mapsto k\phi (x^{k-1}, h)$ is linear and continuous\\
+also,\\ \hspace*{2cm} $\norm{\phi (x^p, h^q)}_F \leq |\phi|_{L(E^k, F)} \norm{x}_E^p \norm{h}E^q$.\\
+
+Hence proved.
+
+
+\theorem \textbf{(Taytor's formula, asymptotic form)}. Let $E$ and $F$ be normed vector spaces, $O$ an open subset of $E$ and $a \in O$. If $f: O \to F$ is $(k-1)$-differentiable and $f^{(k)}(a)$ exists, then for $x$ is sufficiently small \\
+\qquad $ f(a+x) = f(a)  + f^{(1)}(a)(x) + \frac{1}{2} f^{(2)}(a)(x^2) +....+\frac{1}{k!} f^{(k)}(a)(x^k) + o(\norm{h}^k)$.
+
+\newpage
+
+\subsection{Asymptotic Developments}
+\normalfont
+
+Let $E$ and $F$ be normed vector spaces, $O$ an open subset of $E$ and $f$ a mapping from $O$ into $F$. We say that $f$ has an asymptotic development of order $k$ at a point $a \in O$ if there are symmetric continuous $i$-linear mappings $A_i$ , for $i = 1,......,k$,
+such that for small values of $x$ we have\\
+
+\hspace{2cm} $f(a+x) = f(a) + A_1x + \frac{1}{1}A_2(x^2)+..........+ \frac{1}{k!}A_k(x^k) + o(\norm{x}_k)$.\\~\\
+
+
+From Theorem $6.1$, if $f$ is k-differentiable at $a$, then $f$ has an asymptotic development of order $k$ at $a$. By definition, if $f$ has an asymptotic development of order 1 at $a$, then $f$ is differentiable at $a$; however, $f$ may have an asymptotic development of order $k > 1$ without being k-differentiable.\\~\\
+
+Here is an example.\\ 
+Let $f : \R \to R$ be defined by
+
+\hspace*{3cm}  \[ f(x) = \begin{cases} 
+							 x^3 \sin \frac{1}{x} & x \neq 0 \\
+							 0 & x = 0\\
+							 \end{cases}
+							 \]
+\\
+For $x$ close to $0$ we can write
+
+
+\hspace*{3cm} $f(x) = x^2 ( x \sin \frac{1}{x}) = x^2 \epsilon(x)$,\\
+
+where $lim_{x \to 0} \epsilon (x) = 0$. Hence, $f$ has an asymptotic development of order $0$.\\
+
+Also,
+
+\hspace*{3cm}  \[ f'(x) = \begin{cases} 
+							 3x^2 \sin \frac{1}{x} - x \cos \frac{1}{x} & x \neq 0 \\
+							 0 & x = 0\\
+							 \end{cases}
+							 \]\\
+			
+and so,\\
+\hspace*{3cm} $\dfrac{f'(x) - f'(0)}{x} = 3x \sin \frac{1}{x} - \cos \frac{1}{x}$\\~\\
+which has no limit at $0$ and it follows that $f^{(2)}(0)$ does not exist.\\
+
+\newpage
+\theorem Let $E$ and $F$ be normed vector spaces, $O$ an open subset of $E$ and $f$ a mapping from $O$ into $F$ . If $f$ has an asymptotic development at $a \in E$ of order $k$, then this development is unique.\\
+
+
+\corollary Let $E$ and $F$ be normed vector spaces, $O$ an open subset of $E$ and $f$ a mapping from  $O$ into $F$ . If $f$ has a kth differential at $a \in O$ and\\
+
+\hspace{3cm} $f(a+x) = f(a) + \sum_{i=1}^k \frac{1}{i!} A_i (x^i) + o(\norm{x}_k)$,\\
+
+then $A_i = f^{(i)} (a)$ for all $i$.\\
+
+\section{Extrema: Second Order Condition}
+\normalfont
+
+A local extremum of a differentiable function is always a critical point. We now suppose that the function is 2-differentiable at the critical point. We will discuss local minima; analogous results for local maxima can be easily obtained by slightly modifying the argument
+
+\proposition Let $O$ be an open subset of a normed vector space $E$, $a \in O$ and $f$ a real-valued function defined on $O$ having a second differential at $a$. If $a$ is a local minimum, then for $h \in E$ \\
+
+\hspace*{4cm} $f^{(2)}(a)(h,h) \geq 0$
+
+\proof \normalfont case 1: If $h = 0$, then it is true.\\
+case 2: $h \neq 0$, then there is an $\epsilon > 0$ such that if $|t| < \epsilon$, then $f(a+th) \geq f(a)$. Using the fact that $a$ is a critical point, we have\\
+
+$0 \leq f(a + th) - f(a) = f^{(1)}(a)th + \frac{1}{2} f^{(2)}(a)(th,th) + o(t^2\norm{h}^2_E)$\\~\\
+\hspace*{2cm} $= \frac{t^2}{2} f^{(2)}(a)(h,h) + o(t^2\norm{h}^2_E)$.\\~\\
+For $t \neq 0$, we obtain
+
+\hspace*{3cm} $0 \leq f^{(2)}(a)(h,h) + \frac{2}{t^2} o(t^2\norm{h}^2_E)$.\\
+
+As $lim_{t \to 0} \dfrac{o(t^2\norm{h}^2_E)}{t^2} = 0 $, we have $f^{(2)}(a)(h,h) \geq 0$.
+
+The above result gives a necessary condition for a point to be a minimum.	\\
+
+\Remark \normalfont The converse of the above proposition is not true.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{References}
+\texttt{[1] Avez, A.: Differential Calculus. J. Wiley and Sons Ltd, New York (1986)}\\
+\texttt{[2] Rodney Coleman: Calculus on Normed Vector Spaces (2012)} \\
+\texttt{[3] Dacorogna, B.: Introduction to the Calculus of Variations. Imperial College Press, London
+(2004)}
+
+
+\end{document}

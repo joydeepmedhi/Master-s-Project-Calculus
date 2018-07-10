@@ -1,0 +1,465 @@
+\documentclass{beamer}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+
+%-----------------------------------------
+% Math Packages
+
+\usepackage[all]{xy}
+%\documentclass[13pt]{article}
+\usepackage{amssymb}
+%\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{pgf,color}
+\usepackage{epstopdf}
+\usepackage{epsfig,textpos,mathrsfs}
+\usepackage{amsthm}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\h}{\mathcal{H}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\Y}{\mathcal{Y}}
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+%--------------------------
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Calculus on Norm]{Calculus on Normed Vector Spaces} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author[Joydeep]{Joydeep Medhi\\{\scriptsize 2013MT60599 \\~\\ \scriptsize Supervisor: Amit Priyadarshi}} % Your name
+\institute[IIT Delhi] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+Dept. of Mathematics \\
+Indian Institute of Technology\\ % Your institution for the title page
+\medskip
+\textit{} % Your email address
+Midterm Presentation 2
+}
+\date{\today} % Date, can be changed to a custom date
+
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+\begin{frame}
+\frametitle{Overview} % Table of contents slide, comment this block out to remove it
+\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+%------------------------------------------------
+
+\subsection{Aim} % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
+
+\begin{frame}
+\frametitle{Aim}
+\begin{itemize}
+\item To study the notion of derivatives on general normed vector spaces and do Calculus on them.
+\item To generalise the basic calculus of function of several variables to Normed Vector Spaces.'
+\item To explore the applications of these concepts.
+\end{itemize}
+\end{frame}
+
+\subsection{Previous Work}
+
+\begin{frame}
+\frametitle{Quick overview of previous work}
+
+\begin{itemize}
+\item Normed Vector Spaces
+\item Directional and Partial Derivatives
+\item Differentiation and Mean Value Theorems
+\item Higher order Differentials and Derivatives
+\item Taylor Theorems and Applications (Extrema)
+
+\end{itemize}
+\end{frame}
+
+
+%---------------------------------------------
+\section{Calculus on Normed Vector Spaces}
+
+\subsection{Hilbert Spaces}
+
+%---------------------------------------
+\begin{frame}
+\frametitle{Hilbert Space}
+A vector space $E$ over the field $F$ together with an inner product, i.e., with a map
+
+\hspace{2cm} $<.,.>$ : $E$ x $E \to F$ \\
+
+which follows the three axioms for all vectors $\in E$
+\begin{itemize}
+\item Positive-definiteness
+\item Linearity in first argument
+\item Conjugate symmetry
+\end{itemize}
+Then the pair $( E, <,>)$ is called an inner product space.\\~\\
+
+for $x \in E$ , $\norm{x}$ is defined as $ \sqrt{ <x,x>} $.\\~\\
+
+If $E$ is an inner product space and complete with the norm derived from the inner product, Then $E$ is said to be a \textbf{Hilbert Space} 
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{The Riesz Representation Theorem}
+If H is a Hilbert space, then by the Riesz representation theorem, we may associate an element of H to a continuous linear form.\\~\\
+
+Before looking at the general Theorem, let us see what
+happens in $\R^n$ . If $l$ is a linear form defined on $\R^n$, $(e_i)$ its standard basis and 
+$x$ = $\sum_{i = 1}^{n} x_i e_i$ then \\~\\
+
+\hspace{2cm} $l(x) = \sum_{i=1}^{n} x_i l(e_i) = x . w$\\~\\
+where $w = (l(e_1), ...., l(e_n))$.\\~\\
+
+If $\overline{w}$ is such that $l(x) = x. \overline{w}$ for all $x \in \R^n$, then $x.(w - \overline{w}) = 0$ for all $x \in \R^n$, it follows that $ w - \overline{w} = 0$. Hence, the element $w$ such that $l(x) = x.w$ for all $x$ is \textbf{unique}.
+
+\end{frame}
+
+%--------------------------------------------
+
+\begin{frame}
+\frametitle{The Riesz Representation Theorem}
+
+\textbf{Theorem} Let $l$ be a continuous linear form defined on a Hilbert space $H$ . Then there is a unique element $a \in  H$ such that \\~\\
+
+\hspace{3cm} $l(x) = <x, a>$ \\~\\
+
+for all $x \in H$. In addition, $|l|_{H^{*}} = \norm{a}$. \\
+
+
+
+\end{frame}
+%-----------------------------------------------
+
+\begin{frame}
+\frametitle{The Riesz Representation Theorem}
+If $f$ is a real-valued mapping defined on an open subset $O$ of a Hilbert space $H$
+and is differentiable at a point $x \in O$, then $f'(x)$ is a continuous linear form and
+so, from Theorem, there is a unique element $a \in H$ such that \\~\\
+
+\hspace{3cm} $f'(x) h = <h,a>$ \\~\\
+for all $h \in H$. We call \textbf{a} the gradient of $f$ at $x$ and write $\nabla f(x)$ for a. If f is differentiable on $O$, then we obtain a mapping $\nabla f$ from $O$ into $H$ to which we also
+give the name gradient.\\~\\
+
+\textit{Remark.} If $f$ has a second differential at a point $x \in O$, then $\nabla f$ is
+differentiable at $x$. If $f$ is of class $C^2$ on $O$, then $\nabla f$ is of class $C^1$ on $O$.
+\end{frame}
+
+
+\subsection{Convex Functions}
+
+\begin{frame}
+\frametitle{Convex functions}
+Let $X$ be a convex subset of a vector space $V$ . We say that $f$ : $X \to R$ is \textbf{convex} if for all $x, y \in X$ and $ \lambda \in (0,1)$ we have \\~\\
+
+\hspace{2cm} $ f\left( \lambda x + (1- \lambda ) y\right) \leq \lambda f(x) + (1-\lambda) f(y)$\\~\\
+
+If this inequality is strict when $x \neq y$, then we say that $f$ is \textbf{strictly convex}.
+
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Convex Hull}
+Let $E$ be a vector space and $x_1 ,..., x_n \in E$. We say that $y \in E$ is a \textit{convex combination} of the points $x_1 ,..., x_n$ if there exists $\lambda_1 ,..., \lambda_n \in [0,1]$ with $\sum_{i=1}^n \lambda_i = 1$ such that $ y = \sum_{i=1}^n \lambda_i x_i$.  \\~\\
+
+If $X$ is a nonempty subset of $E$, then we
+define \textit{co X} , the convex hull of $X$ , to be the set of points $y \in E$ which are convex
+combinations of points in $X$.\\~\\
+
+\textbf{Defination.} A subset $X$ of a vector space $E$ is convex if and only if \\ 
+\hspace{3cm} \textit{co X} $= X$.
+  
+\end{frame}
+
+\begin{frame}
+\frametitle{Continuity of Convex function}
+All convex functions are not continuous. \\~\\
+
+For example, if we define $f$ on $[0,1]$ by \\
+
+
+\[ f(x) = \begin{cases} 
+      0 & x\in [0,1) \\
+      1 & x = 1 
+   \end{cases}
+\]
+\\~\\
+then $f$ is convex, but not continuous. However, $f$ is continuous on the interior $[0,1]$.
+
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Continuity of Convex functions}
+\textbf{Lemma} If P is a bounded nonempty polyhedron in a finite-dimensional normed vector space E and f is a convex function defined on E, then f has an upper bound on P . \\~\\
+
+\textbf{Theorem} Let $X$ be a finite dimensional normed vector space $E$ and $f: X \to \R$ is convex. If $x \in int X$, then $f$ is continuous at $x$.
+
+\textbf{Corollary} If a convex function is defined on an open subset of a finite-dimensional normed vector space, then it is continuous.
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Differentiable Convex Functions}
+Let O be an open subset of a normed vector space $E$ and $f$ a real-valued differentiable functions defined on $O$. If $X \subset O$ is convex and $x, y \in X$, then the following are equivalent:\\
+\begin{itemize}
+\item $f$ is convex on X.
+\item $f(y) - f(x) \geq f'(x)(y-x)$
+\item $ (f'(y) - f'(x))(y-x) \geq 0$
+\end{itemize}
+
+\textit{Remark.} From third condition we deduce that, if $f$ is differentiable on
+an open interval $I$ of $\R$, then $f$ is convex (resp. strictly convex) if and only if the
+derivative of $f$ is increasing (resp. strictly increasing) on $I$.
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Differentiable Convex Functions}
+
+\textbf{Example}
+Let $A \in M_n(\R)$ be symmetric, $b \in \R^n$ and $f:\R^n \to R$ be defined by \\
+\hspace{3cm} $f(x) = \frac{1}{2} x^t A x - b^t x$. \\~\\
+
+Then $f(y) - f(x) - f'(x)(y-x) = \frac{1}{2} y^t A y - b^t y - \frac{1}{2} x^t A x - b^t x  - (Ax - b)^t (y-x)$\\~\\
+
+\hspace{4cm} $= \frac{1}{2} y^t A y + \frac{1}{2} x^t A x -x^tAy$\\~\\
+
+
+\hspace{4cm} $ = \frac{1}{2} (y-x)^t A (y-x)$ \\~\\
+
+It follows that f is convex (resp. strictly convex) if and only if the matrix A is
+positive (resp. positive definite). 
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Differentiable Convex Functions}
+Let $O$ be an open subset of a normed vector space $E$ and $f$ a real-valued 2-differentiable function defined on $O$. For $x \in O$ and $h \in E$ we set \\
+
+\hspace{3cm} $Q_{f(x)}(h) = f^{(2)}(x) (h,h)$ \\
+
+$Q_{f(x)}$ is quadratic form.\\~\\
+
+\textbf{Theorem.} Let $O$ be an open subset of a Normed Vector Space $E$, $X \subset O$ convex and $f: O \to \R$ 2-differentiable. Then
+\begin{itemize}
+\item $f$ is convex on $X$, if and only if $Q_{f(x)}$ is positive for all $x \in X$.
+\item $f$ is strictly convex on $X$, if $Q_{f(x)}$ is positive definite for all $x \in X$.
+\end{itemize}
+
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Differentiable Convex Functions}
+\textbf{Example}
+A function $f$ may be strictly convex without the quadratric form $Q_f$ being
+positive definite at all points.For example, if $f$ is the real-valued function defined
+on $\R$ by $f(x) = x^4$ then $Q_f(0) = 0$. However,\\~\\
+
+\hspace{1cm} $(x+h)^4 - x^4 = x^4 + 4x^3h + 6x^2h^2 + 4xh^3 + h^4 - x^4$\\~\\
+\hspace{33mm} $ = f'(x)h + h^2(6x^2 + 4xh + h^2)$\\~\\
+\hspace{33mm} $ = f'(x)h + h^2(2x^2 + (2x+h)^2) > f'(x)h$ \\~\\
+
+if $h \neq 0$. Therefore $f$ is strictly convex.
+
+\end{frame}
+
+%-------------------
+\subsection{The Inverse Mapping Theorem}
+\begin{frame}
+\frametitle{The Inverse Mapping Theorem}
+
+Suppose that $E$ and $F$ are normed vector spaces and that $O$ and $U$ are open subsets
+of $E$ and $F$ respectively.\\~\\ A function $f : O \to U$ is a diffeomorphism if
+$f$ is bijective and both $f$ and $f^{-1}$ are differentiable. Also, we say that $f$ is a
+$C^k$ -diffeomorphism if both $f$ and $f^{-1}$ are $C^k$ -mappings. \\~\\
+
+\textit{Results.} If $f$ is a diffeomorphism, then at any point $x$ in its domain, $f'(x)$
+is invertible.\\
+
+In addition, for $f$ to be a $C^k$ -diffeomorphism it is sufficient that $f$ be of class $C^k$.\\
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{The Inverse Mapping Theorem}
+\textit{Proposition.} Let $E$ and $F$ be Banach spaces, $O \subset E$ and $U \subset F$ open
+sets and $f : O \to U$ a differentiable homeomorphism. If $a \in O$ and $f'(a)$ is invertible then $f^{-1}$ is differentiable at $b = f(a)$.\\
+In addition, if $f$ is of class $C^1$ then there is a open neighbourhood $O'$ such that $f_{|O'}$ is a $C^1$-diffeomorphism onto its image.\\~\\
+
+\textit{Theorem.} Let $E$ and $F$ be Banach spaces, $O \subset E$ and $f : O \to F$ of class $C^1$. If $a \in O$ and $f'(a)$ is invertible, then there is an open neighbourhood $O'$ of such that $f_{ |O'}$ is a $C^1$-diffeomorphism onto its image.
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{The Inverse Mapping Theorem}
+\textit{Remarks.}
+\begin{itemize}
+\item Under the conditions of the theorem, $f_{ |O'}$ is a $C^1$-diffeomorphism onto its image. Infact if $f$ is of class $C^k$, then $f_{ |O'}$ is a $C^k$-diffeomorphism.
+
+\item If a mapping $f$ is such that each point in its domain has an open neighbourhood
+$O$ such that $f$ restricted to $O$ defines a diffeomorphism onto its image, then we
+say that $f$ is a \textbf{local diffeomorphism}.
+
+\end{itemize} 
+
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{The Inverse Mapping Theorem}
+\textit{Example.}
+
+Consider the mapping\\
+
+\hspace{15mm} $f : \R^2 \ {(0,0)} \to \R^2, (r, \theta) \mapsto (r cos \theta, r sin \theta)$\\~\\
+
+Then\\
+\hspace{3cm} \[
+J_f(r, \theta)=
+  \begin{bmatrix}
+    cos \theta & -r sin\theta \\
+    sin \theta & r cos \theta
+  \end{bmatrix}
+\]
+\\
+
+and \textbf{det} $J_f(r, \theta) = r \neq 0$. It follows that $f'(r, \theta)$ is invertible for all $(r, \theta) \in \R^2$.\\~\\
+
+The continuity of the entries in the Jacobian matrix imply that $f$ is a $C^1$-mapping. Hence $f$ is a \textit{local diffeomorphism}. However, $f$ is not bijective and so not a \textit{diffeomorphism}.  
+
+\end{frame}
+
+\subsection{Future Work}
+
+\begin{frame}
+\frametitle{Future Work}
+\begin{itemize}
+\item Implicit Mapping and Rank Theorem
+\item Theory of Vector Fields
+\item Application of these concepts in various fields (Optimization/Machine Learning etc.)
+
+\end{itemize}
+\end{frame}
+%---------------
+\begin{frame}
+\frametitle{References}
+\footnotesize{
+\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+\bibitem[Rodney Coleman, 2012]{p1} Rodney Colman(2012)
+\newblock Calculus on Normed Linear Spaces
+
+\bibitem[2]{p2} Avez, A.(1986)
+\newblock  Differential Calculus. J. Wiley and Sons Ltd, New York (1986)
+\end{thebibliography}
+}
+\end{frame}
+
+
+
+
+%-------------------------------------------------
+
+\begin{frame}
+\Large{\centerline{Thank You!}}
+\small{\centerline{The End}}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

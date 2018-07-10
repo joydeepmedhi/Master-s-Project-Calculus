@@ -1,0 +1,13 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {english}
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Aim}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Quick Overview of Previous Work}{4}{0}{1}
+\beamer@sectionintoc {2}{Calculus on Normed Linear Spaces}{9}{0}{2}
+\beamer@subsectionintoc {2}{1}{Mean Value Theorem}{9}{0}{2}
+\beamer@subsectionintoc {2}{2}{Partial Differentials}{13}{0}{2}
+\beamer@subsectionintoc {2}{3}{Higher Differentials}{15}{0}{2}
+\beamer@subsectionintoc {2}{4}{Multilinear Mazpping}{17}{0}{2}
+\beamer@sectionintoc {3}{Taylor Formulas}{20}{0}{3}
+\beamer@subsectionintoc {3}{1}{Taylor's Theorem}{20}{0}{3}
+\beamer@subsectionintoc {3}{2}{Extrema}{25}{0}{3}

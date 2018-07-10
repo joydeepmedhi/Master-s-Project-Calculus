@@ -1,0 +1,528 @@
+\documentclass{beamer}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+
+%-----------------------------------------
+% Math Packages
+
+\usepackage[all]{xy}
+%\documentclass[13pt]{article}
+\usepackage{amssymb}
+%\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{pgf,color}
+\usepackage{epstopdf}
+\usepackage{epsfig,textpos,mathrsfs}
+\usepackage{amsthm}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\h}{\mathcal{H}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\Y}{\mathcal{Y}}
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+%--------------------------
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Calculus on Norm]{Calculus on Normed Vector Spaces} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author[Joydeep]{Joydeep Medhi\\{\scriptsize 2013MT60599 \\~\\ \scriptsize Supervisor: Amit Priyadarshi}} % Your name
+\institute[IIT Delhi] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+Dept. of Mathematics \\
+Indian Institute of Technology\\ % Your institution for the title page
+\medskip
+\textit{} % Your email address
+Final Presentation
+}
+\date{\today} % Date, can be changed to a custom date
+
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+\begin{frame}
+\frametitle{Overview} % Table of contents slide, comment this block out to remove it
+\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+\section{Introduction} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+%------------------------------------------------
+
+\subsection{Aim} % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
+
+\begin{frame}
+\frametitle{Aim}
+\begin{itemize}
+\item To study the notion of derivatives on general normed vector spaces and do Calculus on them.
+\item To generalise the basic calculus of function of several variables to Normed Vector Spaces.'
+\item To explore the applications of these concepts.
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+\subsection{Quick Overview of Previous Work}
+\begin{frame}
+\frametitle{Quick overview of previous work}
+
+
+
+
+\end{frame}
+
+
+%-----------------------------------------------
+\begin{frame}
+\frametitle{Directional Derivatives}
+Let $O$ be an open subset of a normed vector space $E$, $f$ a real-valued function
+defined on $O$, $a \in O$ and u a nonzero element of $E$. The function $f_{u}:t\rightarrow f(a +tu)$ is defined on an open interval containing 0. If the derivative $\frac{df_{u}}{dt}(0)$ is defined, i.e., if the limit
+\begin{center}
+$\lim_{t\to 0} \dfrac{f(a+tu)-f(a)}{t}$
+\end{center}
+exists, then it is called the \textbf{\textit{directional derivative}} of $f$ at $a$ in the direction of $u$, i.e. $\partial_{u}f(a)$.\\~\\
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Small "o" notation}
+Let $E$ and $F$ be normed vector spaces, $O$ an open subset of $E$ containing 0, and $g$ a mapping from $O$ into $F$ such that $g(0) =  0$.\\ If there exists a mapping $\epsilon$, defined on a neighbourhood of $0 \in E$ and with image in $F$ , such that $\lim_{h \to 0} \epsilon(h) = 0$ and \\~\\
+\hspace*{2cm} $g(h) = \norm{h}_E \epsilon(h)$,\\~\\
+then we write $g(h) = o(h)$ and say that $g$ is \textit{"small o of h"}. \\
+
+The condition $g(h) = o(h)$ is independent of the norms we choose for two spaces $E$ and $F$. \\
+
+\end{frame}
+%-------------------
+\begin{frame}
+\frametitle{Differentiability}
+\begin{itemize}
+\item If $a \in O$ and there is a continuous linear mapping $\phi : E \rightarrow F$ such that \\
+\hspace*{1cm} $ f(a+h) = f(a) + \phi (h) + o(h) $ \\
+when $h$ is close to 0, then we say that $f$ is \textit{differentiable} at $a$.\\~\\
+
+\item If all the partial derivatives exist, then we know that the only possibility for $f'(a)$ is the linear function $ \phi = \sum_{i=1}^{n} \frac{\partial f}{\partial x_i} (a) dx_i $. We consider the expression,\\
+
+\begin{center}
+
+$ \dfrac{f(a+h) - f(a) - \phi (h)}{\norm{h}} = \epsilon (h)$
+\end{center}
+
+If $\lim_{h \to 0} \epsilon (h) =  0$, then $f$ is differentiable at a, otherwise it is not. \\
+
+\end{itemize}
+\end{frame}
+
+
+%------------------------------------------------
+
+\begin{frame} % Need to use the fragile option when verbatim is used in the slide
+\frametitle{Differentiability of the Norm}
+
+If $E$ is a normed vector space with norm $\norm{.}$, then $\norm{.}$ is itself a mapping from $E$ into $\R$ and we can study its \textit{differentiability}. We will write $Df(\norm{.}) (x)$ for differentiability of the norm at x (if exists) \\~\\~\\
+
+The equation becomes \\
+
+$\norm{x + h} = \norm{x} + Df(\norm{.})(x)h + o(h) $
+
+
+\end{frame}
+%-----------------------------------------------
+\section{Calculus on Normed Linear Spaces}
+\subsection{Mean Value Theorem}
+
+\begin{frame}
+\frametitle{Mean Value Theorem}
+Let f be a real-valued function defined on a closed bounded interval $[a,b] \subset \R$. If f is continuous on $[a,b] $ and differentiable on $(a,b) $ then there is a point $c \in (a,b)$ such that
+\begin{center}
+$ f(b) - f(a) = \dot{f}(c)(b-a)$
+\end{center}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Generalization of Mean Value Theorem}
+
+Let $O$ be a open subset of a normed vector space $E$ and $a,b \in E$ with $[a,b] \in O$. If $f:O \to \R$ is differentiable , then there is a element $c \in (a,b)$ such that 
+\begin{center}
+$ f(b) - f(a) = f'(c)(b-a)$
+\end{center}
+\\
+
+If $E = \R^n$ then this result can be written as\\~\\
+\hspace*{2cm}	$f(b) - f(a) = \sum_{i=1}^{n} \dfrac{\partial f}{\partial x_i}(c)(b_i - a_i)$
+
+\end{frame}
+
+
+
+%-----------------------------------------------
+\begin{frame}
+\frametitle{Results}
+
+Let us consider the result $f : \R \to \R^2$, $ t \mapsto (cos(2\pi t), sin(2\pi t))$ \\
+Here, $f(1)-f(0) = 0$. However, $f'(t) = (-2\pi sin(\pi t) dt , 2\pi cos(\pi t) dt)$, where $dt$ is the identity on $\R$. \\~\\ So we cannot find $t_0 \in (0, 1)$ such that $f(1)-f(0) = f'(t_0)(1-0)$.\\ Therefore we cannot generalize Theorem to mappings whose image lies in a general normed vector space.
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Results}
+\textbf{Theorem}\\
+Let $[a,b]$ be an interval of $\R$, $F$ a normed vector space and $f:[a,b] \to F$ and $g: [a,b] \to \R$ both continuous and differentiable on $(a,b)$. \\If $\norm{\dot{f}(t)} \leq \dot{g}(t)$ for all $t \in (a,b)$, then \hspace*{3cm} $\norm{f(b) - f(a)}_F \leq g(b) - g(a)$.
+		
+\\~\\
+\textbf{Corollary}\\
+Let $E$ and $F$ are normed vector spaces, $O$ an open subset of $E$ and $f:O \to F$ differentiable on $O$. If the segment $[a,b] \subset O$ ,then\\~\\
+\hspace*{2cm}   $ \norm{f(b)-f(a)}_F  \leq sup_{x \in (a,b)} |f'(x)|_{L(E, F)} \norm{b-a}_E $
+
+\end{frame}
+
+%------------------------------------------------
+\subsection{Partial Differentials}
+
+\begin{frame}
+\frametitle{Partial Differentials}
+The continuous linear mappings between two normed vector spaces $E$ and $F$ form a vector space $L(E,F)$. If we set\\~\\
+\hspace*{2cm} $|\phi|_{L(E,F)} = sup_{\norm{x} \leq 1} \norm{\phi (x)}_F$\\~\\
+If $\phi \in L(E,F)$, then $|.|_L(E,F)$ is a norm on $L(E,F)$.\\~\\
+
+Let $E_1, E_2,....,E_n$ and $F$ be normed vector spaces. We set\\
+\hspace{2cm} $E = E_1 \times.......\times E_n$ and define a norm on $E$\\
+
+\hspace*{2cm} $ \norm{(x_1,...,x_n)}_E = $max_k $\norm{x_k}_{E_k}$.\\
+\end{frame}
+
+
+
+%-----------------------------------------------
+\begin{frame}
+\frametitle{Partial Differentials}
+Now let $O$ be an open subset of $E$ and $f$ a mapping from $O$ into $F$ . If we take a
+point $a \in O$ and let the kth coordinate vary and fix the others, then we obtain a
+mapping $f_{a,k}$ from $E_k$ into $F$ , defined on an open subset of $E_k$ containing $a_k$.\\
+
+If $f_{a,k}$ is differentiable at $a_k$, then we call the differential $f'_{a,k}(a_k) \in L(E_k, F)$
+the \textit{kth partial differential of f at a} and write it as $\partial_k f(a)$ for $f'_{a,k}(a_k)$. \\~\\
+
+\textbf{Theorem.} Let $E_1,E_2,...., E_n$ and $F$ be normed vector spaces, $O$ an open subset
+of $E = E_1 \times........\times E_n$ and $f$ is a mapping from  $O$ into $F$, then $f$ is of class $C^1$ if and only if $f$ has a continuous partial differentials defined on $O$.
+
+
+\end{frame}
+
+\subsection{Higher Differentials}
+%------------------------------------------------
+\begin{frame}
+\frametitle{Higher Derivatives and Differentials}
+
+Let $O \subset \R^n$ be open and $f$ a real valued function defined on $O$. If the function $\frac{\partial f}{\partial x_i}$ is defined on $O$, then we can consider the existance of its partial derivatives. If $ \frac{\partial}{\partial x_i}(\frac{\partial f}{\partial x_i})(a)$ exists, then we write for this derivative $\frac{\partial^2 x}{\partial x_j \partial x_i}(a)$ if $i \neq j$ and $\frac{\partial^2 x}{\partial^2 x_i}(a)$ if $i = j$.\\~\\
+
+If these functions are defined and continuous for all pairs $(j,i)$, then we say that $f$ is of class $C^2$.\\~\\
+
+We say that continuous functions are of class $C^0$ . If a function is of class $C^K$ for all
+$K \in \N$, then we say that $f$ is of class $C^{\infty}$ , or smooth.
+
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+
+\frametitle{Higher Derivatives and Differentials}
+\textbf{Schwarz’s Theorem} Let $O \subset \R^2$ be open and $f: O \to \R$ be such that the second partial derivatives $\frac{\partial^2 f}{\partial x \partial y}$ and $\frac{\partial^2 f}{\partial y \partial x}$ are defined on $O$. If these functions are continuous at $(a,b) \in O$, then \\
+\hspace*{3cm} $\dfrac{\partial^2 f}{\partial x \partial y}(a,b)= \dfrac{\partial^2 f}{\partial y \partial x}(a,b)$. \\~\\
+
+$S_k$ is the group of permutations of the set ${1,.....,k}$.
+
+\textbf{Theorem.} Let $O \subset \R^n$ be open and $f:O \to \R$ of class $C^K$ and $(i_1,....,i_k) \in \N^K$ with $i_1 \leq .....\leq i_n$. If  $\sigma \in S_k$, then for $a \in O$ we have\\
+
+\hspace*{3cm} $\dfrac{\partial^k f}{\partial x_{i_1}..... \partial x_{i_k}} (a) = \dfrac{\partial^k f}{\partial x_{i_{\sigma(1)}}..... \partial x_{i_{\sigma(k)}}} (a)$.
+
+
+\end{frame}
+%-----------------------------------------------
+\subsection{Multilinear Mazpping}
+\begin{frame}
+\frametitle{Multilinear Mapping}
+\begin{itemize}
+
+
+\item Second and higher differentials are more difficult to define than second and higher
+derivatives. 
+\item The natural way of defining a second differential would be to take the
+differential of the mapping $x \mapsto f'(x)$. 
+
+\item Unfortunately, if $E$ and $F$ are normed vector spaces and $f$ a differentiable mapping from an open subset of $E$ into $F$ , then the image of $f'$ lies not in $F$ but in $L(E,F)$. This means that the differential of $f'$ lies in $L(E,L(E,F))$.
+\item  We get around this problem by identifying differentials with multilinear mappings. 
+
+\end{itemize}
+\end{frame}
+
+
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Multilinear Mapping}
+
+Let $E$ and $F$ be normed vector spaces and $O$ an open subset of $E$. If $f: O \to F$ is differentiable on an open neighbourhood $V$ of $a \in O$, then the mapping\\
+\hspace*{3cm} $f': V \mapsto L(E,F), x \mapsto f'(x)$ is defined.\\~\\
+
+If $f'$ is differentiable at $a$, then we would be tempted to define the second differential $f^{(2)}(a)$ of $f$ at $a$ as $f''(a) = (f')'(a)$. However, in this way $f^{(2)}(a) \in L_2(E,F)$ and it is difficult to work with these higher order spaces. Hence we proceed in a different way.\\
+
+
+
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Multilinear Mapping}
+We will define linear continuous mappings $\Phi_k$ from $L_k (E, F) \to L(E^k, F)$. \\
+
+we define k-differentiability and the kth differential $f^{(k)}(a)$ for higher values of k. We will sometimes write $f^{(1)}$ for $f'$. To distinguish the differential in $L_k(E; F)$  corresponding to $f^{(k)}(a)$, we will write $f^{[k]}$ for it, i.e., $\Phi_k (f^{[k]}(a)) = f^{(k)}(a)$.\\~\\
+ 
+Let $E$ and $F$ be normed vector spaces, $O$ an open subset of $E$ and $f$ a mapping from $O$ into $F$ . Then $f$ is $k + 1$-differentiable at $a \in O$ if and only if $f^k$ is differentiable at $a$ and in this case\\
+\hspace*{3cm} $f^{(k)'}(a)h(h_1,....,h_k) = f^{(k+1)}(a)(h,h_1,.....,h_k)$\\
+
+for $h,h_1,.....,h_k \in E$.
+
+
+\end{frame}
+%------------------------------------------------
+\section{Taylor Formulas}
+\subsection{Taylor's Theorem}
+
+\begin{frame}
+\frametitle{Notations}
+\begin{itemize}
+
+\item Let $E$ and $F$ be normed vector spaces, $O$ an open subset of $E$ containing 0 and $g$
+a mapping from $O$ into $F$ such that $g(0) = 0$. If there exists a mapping $\epsilon$, defined
+on a neighbourhood of $0 \in E$ and with image in $F$, such that $lim_{h \to 0} \epsilon (h)$ and \\
+\hspace*{3cm}			$g(h) = \norm{h}_E^k \epsilon(h)$,\\
+
+then we will write $g(h) = o(\norm{h}_E^k)$ or $g(h) = o(\norm{h}^k)$ when the norm is understood. If k =1, then $o(\norm{h}) = o(h)$
+
+\item If $E$ is a normed vector space and $h$ is a vector in $E$, then we will write $h^k$ for
+the vector $(h,.......,h) \in E^k$.
+
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Taylor's Formula}
+
+Let $E$ and $F$ be normed vector spaces, $O$ an open subset of $E$ and $a \in O$. If $f: O \to F$ is $(k-1)$-differentiable and $f^{(k)}(a)$ exists, then for $x$ is sufficiently small \\
+\qquad $ f(a+x) = f(a)  + f^{(1)}(a)(x) + \frac{1}{2} f^{(2)}(a)(x^2) +....+\frac{1}{k!} f^{(k)}(a)(x^k) + o(\norm{h}^k)$.
+
+
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Asymptotic Development}
+Let $E$ and $F$ be normed vector spaces, $O$ an open subset of $E$ and $f$ a mapping from $O$ into $F$. We say that $f$ has an asymptotic development of order $k$ at a point $a \in O$ if there are symmetric continuous $i$-linear mappings $A_i$ , for $i = 1,......,k$,
+such that for small values of $x$ we have\\
+
+\hspace{2cm} $f(a+x) = f(a) + A_1x + \frac{1}{1}A_2(x^2)+..........+ \frac{1}{k!}A_k(x^k) + o(\norm{x}_k)$.\\~\\
+
+If $f$ is k-differentiable at $a$, then $f$ has an asymptotic development of order $k$ at $a$. By definition, if $f$ has an asymptotic development of order 1 at $a$, then $f$ is differentiable at $a$; however, $f$ may have an asymptotic development of order $k > 1$ without being k-differentiable.
+
+
+
+\end{frame}
+%------------------------------------------------
+\begin{frame}
+\frametitle{Example}
+Let $f : \R \to R$ be defined by
+
+\hspace*{3cm}  \[ f(x) = \begin{cases} 
+							 x^3 \sin \frac{1}{x} & x \neq 0 \\
+							 0 & x = 0\\
+							 \end{cases}
+							 \]
+\\
+For $x$ close to $0$ we can write
+
+
+\hspace*{3cm} $f(x) = x^2 ( x \sin \frac{1}{x}) = x^2 \epsilon(x)$,\\
+
+where $lim_{x \to 0} \epsilon (x) = 0$. Hence, $f$ has an asymptotic development of order $2$ at $0$. Also,
+
+\hspace*{3cm}  \[ f'(x) = \begin{cases} 
+							 3x^2 \sin \frac{1}{x} - x \cos \frac{1}{x} & x \neq 0 \\
+							 0 & x = 0\\
+							 \end{cases}
+							 \]
+			
+and so,
+\hspace*{3cm} $\dfrac{f'(x) - f'(0)}{x} = 3x \sin \frac{1}{x} - \cos \frac{1}{x}$\\~\\
+which has no limit at $0$ and it follows that $f^{(2)}(0)$ does not exist.\\
+
+
+
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Asymptotic Development}
+
+\textbf{Theorem.} Let $E$ and $F$ be normed vector spaces, $O$ an open subset of $E$ and $f$ a mapping from $O$ into $F$ . If $f$ has an asymptotic development at $a \in E$ of order $k$, then this development is unique.\\~\\
+
+
+
+\textbf{corollary} Let $E$ and $F$ be normed vector spaces, $O$ an open subset of $E$ and $f$ a mapping from  $O$ into $F$ . If $f$ has a kth differential at $a \in O$ and\\
+
+\hspace{3cm} $f(a+x) = f(a) + \sum_{i=1}^k \frac{1}{i!} A_i (x^i) + o(\norm{x}_k)$,\\
+
+then $A_i = f^{(i)} (a)$ for all $i$.
+
+\end{frame}
+%------------------------------------------------
+\subsection{Extrema}
+\begin{frame}
+\frametitle{Extrema: 2nd order}
+A local extremum of a differentiable function is always a critical point. We now suppose that the function is 2-differentiable at the critical point.\\~\\
+
+
+\textbf{proposition} Let $O$ be an open subset of a normed vector space $E$, $a \in O$ and $f$ a real-valued function defined on $O$ having a second differential at $a$. If $a$ is a local minimum, then for $h \in E$ \\
+
+\hspace*{3cm} $f^{(2)}(a)(h,h) \geq 0$
+\\~\\
+
+Inverse of this proposition is not true. Example, $x \to x^3$. This is a necessary condition for a point to be minimum.
+
+
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Extrema: 2nd order}
+
+Let $O$ be an open subset of a normed vector space $E$, $a \in O$ and $f$ a 2-differentiable real-valued function defined on $O$ and $a \in O$. If $a$ is a critical point of $f$ and there is an open ball $B$ centered on $a$ such that\\
+\hspace*{3cm} $f^{(2)}(a)(h,h) \geq 0$\\
+for $x \in B$ and $h \in E$, then $a$ is a local minimum.\\
+
+
+\end{frame}
+%------------------------------------------------
+\begin{frame}
+\frametitle{Future work}
+\begin{itemize}
+\item Extend these study to Hilbert space, Convex functions.
+
+\item Calculus of Variations
+
+\item Practical Applications of these concepts.
+
+\end{itemize}
+
+\end{frame}
+%
+\begin{frame}
+\frametitle{References}
+\footnotesize{
+\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+\bibitem[Rodney Coleman, 2012]{p1} Rodney Colman(2012)
+\newblock Calculus on Normed Linear Spaces
+
+\bibitem[2]{p2} Avez, A.(1986)
+\newblock  Differential Calculus. J. Wiley and Sons Ltd, New York (1986)
+\end{thebibliography}
+}
+\end{frame}
+
+
+
+%------------------------------------------------
+
+\begin{frame}
+\Large{\centerline{Thank You!}}
+\small{\centerline{The End}}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

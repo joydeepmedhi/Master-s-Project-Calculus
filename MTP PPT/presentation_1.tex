@@ -1,0 +1,513 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass{beamer}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+
+%-----------------------------------------
+% Math Packages
+
+\usepackage[all]{xy}
+%\documentclass[13pt]{article}
+\usepackage{amssymb}
+%\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{pgf,color}
+\usepackage{epstopdf}
+\usepackage{epsfig,textpos,mathrsfs}
+\usepackage{amsthm}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+%%%%%%%%%%%%
+
+%%%%%%%%%%%%%
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\h}{\mathcal{H}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\Y}{\mathcal{Y}}
+\newcommand{\X}{\mathcal{X}}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+
+%--------------------------
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Calculus on Norm]{Calculus on Normed Vector Spaces} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author[Joydeep]{Joydeep Medhi\\{\scriptsize 2013MT60599 \\~\\ \scriptsize Supervisor: Amit Priyadarshi}} % Your name
+\institute[IIT Delhi] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+Dept. of Mathematics \\
+Indian Institute of Technology\\ % Your institution for the title page
+\medskip
+\textit{} % Your email address
+Mid-Term Presentation
+}
+\date{\today} % Date, can be changed to a custom date
+
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+\begin{frame}
+\frametitle{Overview} % Table of contents slide, comment this block out to remove it
+\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+\section{Introduction} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+%------------------------------------------------
+
+\subsection{Introduction} % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
+
+\begin{frame}
+\frametitle{Aim}
+\begin{itemize}
+\item To study the notion of derivatives on general normed vector spaces and do Calculus on them.
+\item To generalise the basic calculus of function of several variables to Normed Vector Spaces.'
+\item To explore the applications of these concepts.
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+\subsection{Definitions}
+\begin{frame}
+\frametitle{Basic Definitions 1}
+\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+
+\column{.45\textwidth} % Right column and width
+\textbf{Norm :}
+A mapping $ \norm{.}: E\rightarrow \mathbb{R} $, is said to be a \textit{norm} if, for all $x, y \in E$ and $\lambda \in \mathbb{R}$ if the given properties are true.\\ The pair $(E, \norm{.})$ is called a \textit{normed vector space} and we say that $\norm{x}$ is the norm
+of $x$.
+
+\pause
+
+\column{.5\textwidth} % Left column and width
+\textbf{Properties}
+\begin{enumerate}
+\item $\norm{x}\geq 0 $
+\item $\norm{x} = 0 \Leftrightarrow x = 0$
+\item $\norm{\lambda x} = |\lambda|\norm{x}$
+\item $ \norm{x + y} \leq \norm{x} + \norm{y}$
+\end{enumerate}
+
+\end{columns}
+\end{frame}
+
+
+
+%------------------------------------------------
+%3
+\begin{frame}
+\frametitle{Basic Definitions 2}
+\begin{block}{Continuity}
+Suppose now that we have two normed vector spaces, $(E, \norm{.}_{E})$ and $(F, \norm{.}_{F})$.\\ Let A be a subset of E, $ f $ a mapping of $A$ into $F$ and $a \in A$. We say that $f$ is \textit{continuous} at $a$ if the following condition is satisfied:\\~\par
+\pause
+for all $\epsilon > 0$, there exists $\delta > 0$ such that, if $x \in A$ and $\norm{x-a}_{E} < \delta$,
+then $\norm{f(x) - f(a)}_{F} < \epsilon$ \\~\\
+If $f$ is \textit{continuous} at every point $a \in A$, then we say that $f$ is \textit{continuous} on $A$.
+\end{block}
+\end{frame}
+
+%------------------------------------------------
+%4
+\begin{frame}
+\frametitle{Basic Definitions 3}
+\begin{block}{The norm on a normed vector space is a continuous function}
+We have \\~\\
+$\norm{x} = \norm{x-y+y} \leq \norm{x-y} + \norm{x} \Rightarrow \norm{x} - \norm{y} \leq \norm{x-y}$\\~\\
+\pause
+In the same way,  $\norm{y} - \norm{x} \leq \norm{y-x}.$ \\~\\ As $\norm{y-x} = \norm{x-y}$, We have
+\\~\\ 
+$|\norm{x}-\norm{y}| \leq \norm{x-y}$
+\\
+And hence the contunity.\\
+\end{block}
+
+\end{frame}
+%----------------------------------
+%5
+\begin{frame}
+\frametitle{Basic Definations 4}
+\begin{block}{Let E and F be normed vector spaces, $A \subseteq E$ , $a \in A$, f and g are mappings from E into F and $\lambda \in \mathbb{R}$:}
+\begin{itemize}
+\item If $f$ and $g$ are continuous at a, then so is $f + g$.
+\item If $f$ is continuous at a, then so is $\lambda f$.
+\item If $\alpha$ is a real-valued function defined on $E$ and both $f$ and $\alpha$ are continuous at a, then so is $\alpha f$.
+\end{itemize}
+\end{block}
+
+\pause
+
+\begin{block}{Let $(E, \norm{.}_{E})$ be a normed vector space}
+\begin{itemize}
+\item The mapping $ f:E \times E \longrightarrow E , (x,y)\mapsto x + y $ is continuous.
+\item The mapping $ f:\R \times E \longrightarrow E , (\lambda,x)\mapsto \lambda x $ is continuous.
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+
+
+
+
+%----------------------------------
+
+%------------------------------------------------
+\section{Differentiation}
+%------------------------------------------------
+\subsection{Directional Derivatives}
+
+\begin{frame}
+\frametitle{Directional Derivatives 1}
+Let $O$ be an open subset of a normed vector space $E$, $f$ a real-valued function
+defined on $O$, $a \in O$ and u a nonzero element of $E$. The function $f_{u}:t\rightarrow f(a +tu)$ is defined on an open interval containing 0. If the derivative $\frac{df_{u}}{dt}(0)$ is defined, i.e., if the limit
+\begin{center}
+$\lim_{t\to 0} \dfrac{f(a+tu)-f(a)}{t}$
+\end{center}
+exists, then it is called the \textbf{\textit{directional derivative}} of $f$ at $a$ in the direction of $u$, i.e. $\partial_{u}f(a)$.\\~\\
+\end{frame}
+%-----------------------------------------------
+
+
+\begin{frame}
+\frametitle{Directional Derivatives 2}
+\begin{example}[1] If $f$ is the function defined on $\R^{2}$ by $ f(x,y) =xe^{xy} $, then the partial derivatives with respect to $x$ and $y$ are defined at all points $(x,y) \in \R^{2}$ and
+\begin{center}
+$\dfrac{\partial f}{\partial x}(x,y) = (1 + xy)e^{xy} $ and  
+ $\dfrac{\partial f}{\partial y}(x,y) = x^{2}e^{xy} $
+\end{center}
+As both are continuous, f is of class $C^{1}$.\\ \normalfont
+\end{example}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Directional Derivative 3}
+
+If $E = \R_{n}$ and $e_{i}$ is its standard basis, then the directional derivative $\partial{e_{i}}f(a)$ is called the i th partial derivative of $f$ at a, or the derivative of $f$ with respect to $x_{i}$ at $a$.
+
+\pause
+\begin{center}
+$\dfrac{\partial f}{\partial{x_{i}}} = \lim_{t \to 0} \dfrac{f(a_{1},..,a_{i} + t,...,a_{n}) - f(a_{1},....,a_{n})}{t}$
+\end{center}
+
+\pause
+
+If for every point $x \in O$, the partial derivative $\dfrac{\partial f}{\partial x_{i}} (x) $ is defined, then we obtain the function i th partial derivative defined on $O$. If these functions are defined and continuous for all i , then we say that the function $f$ is of class $ C^{1} $.
+
+
+\end{frame}
+%--------------------------------
+\begin{frame}
+\frametitle{Directional Derivatives 4}
+\begin{small}
+\begin{example}[2]
+Consider the function $f$ defined on $ \R^{2} $ by
+
+\begin{center}
+$f(x, y) = \dfrac{x^6}{ x^8 + (y-x^2)^2 }$	 if $(x,y) \neq (0,0)$ \\~\\
+ 0 otherwise
+\end{center}
+
+\end{example}
+\end{small}
+\end{frame}
+
+
+
+%------------------------------------------------
+\begin{frame}
+\frametitle{Directional Derivatives 5}
+\begin{small}
+\begin{example}[2]
+We have (for $x$ and $y$)
+\begin{center}
+$\lim_{t \to 0}\dfrac{t^{6}}{t^8 + t^4}/t = 0$ and  $\lim_{t \to 0}\dfrac{0}{t^2}/t = 0$
+\end{center}
+
+and so,
+\begin{center}
+$ \dfrac{\partial f}{\partial x}(0,0) = \dfrac{\partial f}{\partial y}(0,0) = 0$
+\end{center}
+
+However, $\lim_{t \to 0}f(x,x^2) = \infty $, which indicates $f$ is not continuous at 0.
+
+\end{example}
+\end{small}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Jacobian}
+
+Suppose now that $O$ is an open subset of $\R^n$ and $f$ a mapping defined on $O$ with image in $\R^m$. $f$ has m coordinate mappings $f_1,...., f_m$. If $a \in O$ and the partial derivatives $\dfrac{\partial f_i}{\partial x_j} $ of $a$, for $1 \leq i \leq m$ and $1 \leq j \leq n$, are all defined, then the $m \times n $ matrix
+\begin{center}
+\[
+J_f (a)=
+  \begin{bmatrix}
+    \dfrac{\partial f_1}{\partial x_1} & . ~ . ~ . & \dfrac{\partial f_1}{\partial x_n}  \\
+    . & . & . \\
+    . & . & . \\
+    \dfrac{\partial f_m}{\partial x_1} & . ~ . ~ . & \dfrac{\partial f_m}{\partial x_n} 
+  \end{bmatrix}
+\]
+\end{center}
+
+is called the \textit{Jacobian Matrix} of $f$ at $a$.
+
+
+\end{frame}
+
+
+
+
+
+%------------------------------------------------
+\subsection{The Differential}
+\begin{frame}
+\frametitle{Small "o" notation}
+Let $E$ and $F$ be normed vector spaces, $O$ an open subset of $E$ containing 0, and $g$ a mapping from $O$ into $F$ such that $g(0) =  0$.\\ If there exists a mapping $\epsilon$, defined on a neighbourhood of $0 \in E$ and with image in $F$ , such that $\lim_{h \to 0} \epsilon(h) = 0$ and \\~\\
+\hspace*{2cm} $g(h) = \norm{h}_E \epsilon(h)$,\\~\\
+then we write $g(h) = o(h)$ and say that $g$ is \textit{"small o of h"}. \\
+
+The condition $g(h) = o(h)$ is independent of the norms we choose for two spaces $E$ and $F$. \\
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Differentiability}
+\begin{itemize}
+\item If $a \in O$ and there is a continuous linear mapping $\phi : E \rightarrow F$ such that \\
+\hspace*{1cm} $ f(a+h) = f(a) + \phi (h) + o(h) $ \\
+when $h$ is close to 0, then we say that $f$ is \textit{differentiable} at $a$.\\~\\
+\pause
+
+\item If all the partial derivatives exist, then we know that the only possibility for $f'(a)$ is the linear function $ \phi = \sum_{i=1}^{n} \frac{\partial f}{\partial x_i} (a) dx_i $. We consider the expression,\\
+
+\begin{center}
+
+$ \dfrac{f(a+h) - f(a) - \phi (h)}{\norm{h}} = \epsilon (h)$
+\end{center}
+
+If $\lim_{h \to 0} \epsilon (h) =  0$, then $f$ is differentiable at a, otherwise it is not. \\
+
+\end{itemize}
+\end{frame}
+
+
+\subsection{Differentiation of Composition}
+
+%------------------------------------------------
+\begin{frame} % Need to use the fragile option when verbatim is used in the slide
+\frametitle{Composition}
+Let $E$, $F$ and $G$ be normed vector spaces, $O$ an open subset of $E$, $U$ an open subset of $F$ and $f : O \rightarrow F$ , $g : U \rightarrow G$ be such that $f(O) \subset U$ . Then the mapping $g \circ f$ is defined on $O$.\\~\\
+
+If f is differentiable at a and g is differentiable at f(a), then $g \circ f$ is differentiable at a and\\
+\hspace*{4cm} $  (g \circ f)' (a) = g'(f(a))\circ f'(a) $.\\
+This expression is referred to as Chain Rule.
+\pause
+
+If in the above theorem the normed vector spaces are euclidian
+spaces, then \\
+\hspace*{4cm} $ J_{g \circ f} (a) = J_g (f(a)) \circ J_f (a)$.
+
+\end{frame}
+
+%------------------------------------------------
+\subsection{Differentiability of the Norm}
+
+
+\begin{frame} % Need to use the fragile option when verbatim is used in the slide
+\frametitle{Differentiability of the Norm}
+
+If $E$ is a normed vector space with norm $\norm{.}$, then $\norm{.}$ is itself a mapping from $E$ into $\R$ and we can study its \textit{differentiability}. We will write $Df(\norm{.}) (x)$ for differentiability of the norm at x (if exists) \\~\\~\\
+\pause
+The equation becomes \\
+
+$\norm{x + h} = \norm{x} + Df(\norm{.})(x)h + o(h) $
+
+
+\end{frame}
+
+%------------------------------------------------------------
+\begin{frame}
+\begin{block}{Norm is not differentiable at the origin.}
+Suppose $Df(\norm{.})$ exists. Then for small non-zero values of $h$, we have \\
+\begin{center}
+$ \norm{h} =  Df(\norm{.})(0)h + o(h) \Rightarrow \lim_{h \to 0} \left( 1 - Df(\norm{.}) \dfrac{h}{\norm{h}} \right) = 0 $
+\end{center} And
+\begin{center}
+$ \norm{h} = \norm{-h} =  -Df(\norm{.})(0)h + o(h) \Rightarrow \lim_{h \to 0} \left( 1 + Df(\norm{.}) \dfrac{h}{\norm{h}} \right) = 0$
+\end{center}
+
+Summing the two limits we obtain $2=0$, which is a contradiction. Hence $ Df(\norm{.})(0)$ does not exist.\\~\\
+
+\end{block}
+
+
+\end{frame}
+
+
+%----------------------
+\begin{frame}
+\frametitle{Differentiation of Norm}
+
+\begin{block}{Let E be a normed vector space and $ \norm{.}$ its norm. If $\norm{.} $ is
+differentiable at $a \neq 0$ and $ \lambda > 0$ , then $ \norm{.} $ is differentiable at $\lambda a$ and $ Df(\norm{.})(\lambda a) = Df(\norm{.})(a)$.}
+~\\
+If $\norm{.} $ is differentiable at $a, \lambda > 0 $ and $h \in E \setminus \{0\}$ , then we have\\~\\
+
+\hspace*{5mm} $ \norm{\lambda a + h}$ = $\lambda \norm{a + \frac{h}{\lambda}} $ = $ \lambda \left( \norm{a} + Df(\norm{.}) (\frac{h}{\lambda}) + o(\frac{h}{\lambda})\right)$ \\~\\ \hspace*{2cm}= $\norm{\lambda a} + Df(\norm{.})(a)h + o(h)$ \\~\\
+
+It follows that $Df(\norm{.})(\lambda a)$ exists and $Df(\norm{.})(\lambda a) = Df(\norm{.})(a)$.\\
+
+\end{block}
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+\begin{example}[Basic Example]
+\begin{center}
+
+$f : \R \rightarrow \R$\\~\\
+$ f(x) = \norm{x}_1 = |x|$\\~\\
+
+Then f is continuous at x = 0,\\
+
+But f is not differentiable at $x = 0$\\
+
+\pause 
+
+Again,\\
+
+$f'(x) = \dfrac{x}{|x|}$\\~\\
+
+$ \lambda > 0$\\~\\
+
+$ f'(\lambda x) = f'(x)$\\
+
+
+\end{center}
+
+\end{example}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{References}
+\footnotesize{
+\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+\bibitem[Rodney Coleman, 2012]{p1} Rodney Colman(2012)
+\newblock Calculus on Normed Linear Spaces
+
+\bibitem[2]{p2} Avez, A.(1986)
+\newblock  Differential Calculus. J. Wiley and Sons Ltd, New York (1986)
+\end{thebibliography}
+}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\Large{\centerline{Thank You!}}
+\small{\centerline{The End}}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

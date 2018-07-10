@@ -1,0 +1,10 @@
+\beamer@endinputifotherversion {3.36pt}
+\select@language {english}
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Aim}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Previous Work}{4}{0}{1}
+\beamer@sectionintoc {2}{Calculus on Normed Vector Spaces}{5}{0}{2}
+\beamer@subsectionintoc {2}{1}{Hilbert Spaces}{5}{0}{2}
+\beamer@subsectionintoc {2}{2}{Convex Functions}{9}{0}{2}
+\beamer@subsectionintoc {2}{3}{The Inverse Mapping Theorem}{17}{0}{2}
+\beamer@subsectionintoc {2}{4}{Future Work}{21}{0}{2}
